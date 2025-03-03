@@ -21,9 +21,7 @@ public class Airplanel : MonoBehaviour
 
     void FixedUpdate()
     {
-        float yaw = Input.GetAxis("Horaizontal") * yawPower;
-        float pitch = Input.GetAxis("Vertical") * pitchPower;
-        float roll = Input.GetAxis("Roll") * rollPower;
+        
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -34,6 +32,11 @@ public class Airplanel : MonoBehaviour
 
             rb.linearDamping = rb.linearVelocity.magnitude * drag;
             rb.angularDamping = rb.linearVelocity.magnitude * angularDrag;
+
+
+            float yaw = Input.GetAxis("Horizontal") * yawPower;
+            float pitch = Input.GetAxis("Vertical") * pitchPower;
+            float roll = Input.GetAxis("Roll") * rollPower;
 
             rb.AddTorque(transform.up * yaw);
             rb.AddTorque(transform.right * pitch);
